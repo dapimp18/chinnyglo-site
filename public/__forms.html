@@ -1,0 +1,30 @@
+<!-- This file helps Netlify find your React forms during deployment -->
+<html>
+  <body>
+    <!-- Contact Form -->
+    <form name="contact" data-netlify="true">
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <!-- Doctor Registration -->
+    <form name="doctor-registration" data-netlify="true" encType="multipart/form-data">
+      <input type="text" name="first_name" /><input type="text" name="last_name" />
+      <input type="email" name="email" /><input type="file" name="cv_upload" />
+      <!-- Add other fields as needed, but name and cv_upload are key -->
+    </form>
+
+    <!-- Nurse Registration -->
+    <form name="nurse-registration" data-netlify="true" encType="multipart/form-data">
+      <input type="text" name="first_name" /><input type="email" name="email" />
+      <input type="file" name="cv_upload" />
+    </form>
+
+    <!-- HCA Registration -->
+    <form name="healthcare-assistant-registration" data-netlify="true" encType="multipart/form-data">
+      <input type="text" name="first_name" /><input type="email" name="email" />
+      <input type="file" name="cv_upload" />
+    </form>
+  </body>
+</html>
