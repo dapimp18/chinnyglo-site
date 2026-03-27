@@ -7,15 +7,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// --- LOGO CONFIGURATION ---
-/**
- * FOR YOUR LOCAL PROJECT: 
- * Uncomment the import below and delete the 'const logo' line.
- */
-// import logo from './assets/logo.png'; 
-
-// FOR CANVAS PREVIEW: Using the live URL to prevent compilation errors
-const logo = "https://www.chinnygloagency.com/wp-content/uploads/2021/04/cropped-logo.png";
+import logo from './assets/logo.png';
 
 // --- Shared Components ---
 
@@ -346,8 +338,8 @@ const Contact = () => {
 
 // --- Registration Logic ---
 
-const RegistrationForm = ({ 
-  type, grades, statusLabel, statusOptions, availabilityOptions, rightToWorkOptions, experienceOptions 
+const RegistrationForm = ({
+  type, grades, statusLabel, statusOptions, availabilityOptions, rightToWorkOptions, experienceOptions
 }) => {
   const [submitted, setSubmitted] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -419,6 +411,36 @@ const RegistrationForm = ({
             </div>
           </div>
 
+          {availabilityOptions && availabilityOptions.length > 0 && (
+            <div className="text-left">
+              <h3 className="text-xl font-bold text-gray-900 border-b pb-2 mb-6 flex items-center"><Calendar className="mr-2 text-blue-600" size={20} /> Availability</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="text-gray-900">
+                  <label className="block font-bold text-sm mb-1 text-left">Availability *</label>
+                  <select name="availability" className="w-full p-2 border rounded" required>
+                    <option value="">Select Availability</option>
+                    {availabilityOptions.map(a => <option key={a} value={a}>{a}</option>)}
+                  </select>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {experienceOptions && experienceOptions.length > 0 && (
+            <div className="text-left">
+              <h3 className="text-xl font-bold text-gray-900 border-b pb-2 mb-6 flex items-center"><ClipboardList className="mr-2 text-blue-600" size={20} /> Experience</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="text-gray-900">
+                  <label className="block font-bold text-sm mb-1 text-left">Years of Experience *</label>
+                  <select name="experience" className="w-full p-2 border rounded" required>
+                    <option value="">Select Experience</option>
+                    {experienceOptions.map(e => <option key={e} value={e}>{e}</option>)}
+                  </select>
+                </div>
+              </div>
+            </div>
+          )}
+
           <div className="text-left">
             <h3 className="text-xl font-bold text-gray-900 border-b pb-2 mb-6 flex items-center"><Upload className="mr-2 text-blue-600" size={20} /> CV Upload</h3>
             <div onClick={() => fileInputRef.current.click()} className="border-2 border-dashed rounded-xl p-8 text-center bg-gray-50 hover:bg-gray-100 cursor-pointer">
@@ -483,6 +505,7 @@ export default function App() {
 
   const rightToWorkOptions = ["UK/EC National", "Work Permit", "Student Visa", "Tier 2 Visa", "Indefinite Leave to Remain"];
   const availabilityOptions = ["Annual Leave", "Evenings and Weekends", "Full Time"];
+  const experienceOptions = ["Less than 1 year", "1–2 years", "3–5 years", "6–10 years", "10+ years"];
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans text-left">
@@ -522,9 +545,9 @@ export default function App() {
             <button onClick={() => { setCurrentPage('hca-reg'); window.scrollTo(0,0); }} className="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700 transition-colors">Register Now</button>
           </ContentPageTemplate>
         )}
-        {currentPage === 'doctor-reg' && <RegistrationForm type="Doctor" grades={["Associate Specialist", "Consultant", "SHO", "Specialist Registrar", "Foundation Year"]} statusLabel="GMC Status" statusOptions={["Full Registration", "Provisional", "None"]} availabilityOptions={availabilityOptions} rightToWorkOptions={rightToWorkOptions} />}
-        {currentPage === 'nurse-reg' && <RegistrationForm type="Nurse" grades={["RGN", "RMN", "RNLD", "Midwife"]} statusLabel="NMC Status" statusOptions={["Registered (Active Pin)", "Pending"]} availabilityOptions={availabilityOptions} rightToWorkOptions={rightToWorkOptions} />}
-        {currentPage === 'hca-reg' && <RegistrationForm type="Healthcare Assistant" grades={["HCA 1", "HCA 2"]} statusLabel="Right to Work" statusOptions={rightToWorkOptions} availabilityOptions={availabilityOptions} rightToWorkOptions={rightToWorkOptions} />}
+        {currentPage === 'doctor-reg' && <RegistrationForm type="Doctor" grades={["Associate Specialist", "Consultant", "SHO", "Specialist Registrar", "Foundation Year"]} statusLabel="GMC Status" statusOptions={["Full Registration", "Provisional", "None"]} availabilityOptions={availabilityOptions} rightToWorkOptions={rightToWorkOptions} experienceOptions={experienceOptions} />}
+        {currentPage === 'nurse-reg' && <RegistrationForm type="Nurse" grades={["RGN", "RMN", "RNLD", "Midwife"]} statusLabel="NMC Status" statusOptions={["Registered (Active Pin)", "Pending"]} availabilityOptions={availabilityOptions} rightToWorkOptions={rightToWorkOptions} experienceOptions={experienceOptions} />}
+        {currentPage === 'hca-reg' && <RegistrationForm type="Healthcare Assistant" grades={["HCA 1", "HCA 2"]} statusLabel="Right to Work" statusOptions={rightToWorkOptions} availabilityOptions={availabilityOptions} rightToWorkOptions={rightToWorkOptions} experienceOptions={experienceOptions} />}
         {currentPage === 'nhs-hospital' && <ProviderPage title="NHS Hospitals" icon={Building2} desc="Maintaining high standards across UK NHS Trusts." setCurrentPage={setCurrentPage} />}
         {currentPage === 'private-hospitals' && <ProviderPage title="Private Hospitals" icon={Building} desc="Elite staff for private healthcare excellence." setCurrentPage={setCurrentPage} />}
         {currentPage === 'nursing-homes' && <ProviderPage title="Nursing Homes" icon={Users} desc="Staffing for residential nursing environments." setCurrentPage={setCurrentPage} />}
