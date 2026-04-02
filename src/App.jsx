@@ -186,7 +186,7 @@ const Hero = ({ setCurrentPage }) => (
         </div>
       </motion.div>
       <div className="hidden lg:block">
-        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000" alt="Professionals" className="rounded-2xl shadow-2xl border-4 border-white h-[500px] w-full object-cover" />
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000" alt="Healthcare professionals working in a UK hospital" className="rounded-2xl shadow-2xl border-4 border-white h-[500px] w-full object-cover" />
       </div>
     </div>
   </section>
@@ -195,7 +195,7 @@ const Hero = ({ setCurrentPage }) => (
 const About = () => (
   <section id="about" className="py-20 bg-white text-left">
     <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center text-left">
-      <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&q=80&w=800" alt="Medical Team" className="rounded-2xl shadow-lg w-full" />
+      <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&q=80&w=800" alt="Chinnyglo Agency medical staffing team" className="rounded-2xl shadow-lg w-full" loading="lazy" />
       <div className="text-left">
         <h2 className="text-blue-600 font-bold uppercase text-sm mb-3 text-left">Welcome to Chinnyglo</h2>
         <h3 className="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-6 text-left">Dedicated to Excellence</h3>
@@ -244,9 +244,9 @@ const Providers = ({ setCurrentPage }) => {
 
 const CandidatesGrid = ({ setCurrentPage }) => {
   const roles = [
-    { id: 'doctors', title: "Doctors", icon: Stethoscope, img: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=600" },
-    { id: 'nurses', title: "Nurses / HCA", icon: Activity, img: "https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&q=80&w=600" },
-    { id: 'care-support', title: "Care Workers", icon: HeartPulse, img: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80&w=600" }
+    { id: 'doctors', title: "Doctors", icon: Stethoscope, img: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=600", alt: "Locum doctor jobs UK – apply with Chinnyglo Agency" },
+    { id: 'nurses', title: "Nurses / HCA", icon: Activity, img: "https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&q=80&w=600", alt: "Nursing jobs UK – RGN, RMN, HCA roles with Chinnyglo Agency" },
+    { id: 'care-support', title: "Care Workers", icon: HeartPulse, img: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80&w=600", alt: "Care worker and support worker jobs UK with Chinnyglo Agency" }
   ];
   return (
     <section id="candidates" className="py-20 bg-blue-900 text-white text-left">
@@ -257,7 +257,7 @@ const CandidatesGrid = ({ setCurrentPage }) => {
             const IconComp = role.icon;
             return (
               <div key={role.id} className="bg-white rounded-xl overflow-hidden shadow-lg text-gray-900">
-                <img src={role.img} alt={role.title} className="w-full h-48 object-cover" />
+                <img src={role.img} alt={role.alt} className="w-full h-48 object-cover" loading="lazy" />
                 <div className="p-8 text-left">
                   <div className="flex items-center space-x-3 text-blue-800 mb-4 text-left">
                     <IconComp size={24} />
@@ -467,7 +467,7 @@ const ContentPageTemplate = ({ title, children, image }) => (
     </section>
     <section className="py-20 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center text-left text-gray-900">
       <div className="text-left">{children}</div>
-      {image && <img src={image} className="rounded-xl shadow-lg w-full h-[400px] object-cover" alt={title} />}
+      {image && <img src={image} className="rounded-xl shadow-lg w-full h-[400px] object-cover" alt={title} loading="lazy" />}
     </section>
   </div>
 );
@@ -492,80 +492,167 @@ const ProviderPage = ({ title, icon: IconComp, desc, setCurrentPage }) => {
           <p className="text-gray-600 leading-relaxed mb-6">Supplying highly vetted professionals at short notice to sustain patient care.</p>
           <button onClick={handleRequestInfo} className="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700">Request Information</button>
         </div>
-        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800" className="rounded-xl shadow-lg w-full h-[300px] object-cover" alt="Healthcare" />
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800" className="rounded-xl shadow-lg w-full h-[300px] object-cover" alt="UK healthcare staffing – hospital corridor" loading="lazy" />
       </section>
     </div>
   );
 };
 
+// --- Per-Page SEO Configuration ---
+
+const PAGE_SEO = {
+  home: {
+    title: 'Chinnyglo Agency | Healthcare Staffing UK – NHS & Private Sector',
+    description: "Chinnyglo Agency is one of the UK's fastest-growing medical staffing agencies. We supply compliant Doctors, Nurses, HCAs and Care Workers to the NHS and private sector.",
+  },
+  doctors: {
+    title: 'Doctor Jobs UK – Locum & Permanent Medical Roles | Chinnyglo Agency',
+    description: 'Find locum and permanent doctor jobs across the UK with Chinnyglo Agency. We place GPs, Consultants, SHOs, Foundation Doctors and Specialist Registrars in NHS and private hospitals.',
+  },
+  nurses: {
+    title: 'Nursing Jobs UK – RGN, RMN & HCA Roles | Chinnyglo Agency',
+    description: 'Nursing and HCA jobs across the UK. Chinnyglo Agency places RGNs, RMNs, RNLDs and Midwives in NHS hospitals, nursing homes and care homes with excellent pay rates.',
+  },
+  'care-support': {
+    title: 'Care Worker & Support Worker Jobs UK | Chinnyglo Agency',
+    description: 'Care and support worker jobs across the UK. Earn competitive hourly rates working with Chinnyglo Agency to deliver outstanding care to vulnerable adults and elderly residents.',
+  },
+  'doctor-reg': {
+    title: 'Doctor Registration – Apply to Join Chinnyglo Agency',
+    description: 'Register as a doctor with Chinnyglo Agency. Complete our quick online form and our consultants will match you with the best locum and permanent medical positions across the UK.',
+  },
+  'nurse-reg': {
+    title: 'Nurse Registration – Apply to Join Chinnyglo Agency',
+    description: 'Register as a nurse with Chinnyglo Agency. We place RGNs, RMNs, RNLDs and Midwives in top NHS and private healthcare settings with competitive pay and flexible shifts.',
+  },
+  'hca-reg': {
+    title: 'Healthcare Assistant Registration | Chinnyglo Agency',
+    description: 'Register as a Healthcare Assistant with Chinnyglo Agency. Access flexible shifts in NHS hospitals, nursing homes and care homes across the UK with great pay rates.',
+  },
+  'nhs-hospital': {
+    title: 'NHS Hospital Staffing Agency UK | Chinnyglo Agency',
+    description: 'Chinnyglo Agency provides highly compliant, short-notice NHS hospital staffing across the UK. We supply Doctors, Nurses and HCAs to NHS Trusts, maintaining the highest standards of patient care.',
+  },
+  'private-hospitals': {
+    title: 'Private Hospital Staffing Agency UK | Chinnyglo Agency',
+    description: 'Supply top-tier medical professionals to your private hospital with Chinnyglo Agency. We source compliant Doctors, Nurses and HCAs at short notice to maintain the highest standard of care.',
+  },
+  'nursing-homes': {
+    title: 'Nursing Home Staffing Agency UK | Chinnyglo Agency',
+    description: 'Reliable nursing home staffing from Chinnyglo Agency. We supply qualified nurses and care workers to residential and nursing homes across the UK at short notice.',
+  },
+  'care-homes': {
+    title: 'Care Home Staffing Agency UK | Chinnyglo Agency',
+    description: 'Chinnyglo Agency provides experienced care home support workers and carers across the UK. Compassionate, compliant staff placed at short notice to ensure continuous quality care.',
+  },
+};
+
 // --- Main App Component ---
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, setCurrentPage] = useState(() => {
+    const hash = window.location.hash.replace('#', '');
+    return hash || 'home';
+  });
 
   const rightToWorkOptions = ["UK/EC National", "Work Permit", "Student Visa", "Tier 2 Visa", "Indefinite Leave to Remain"];
   const availabilityOptions = ["Annual Leave", "Evenings and Weekends", "Full Time"];
   const experienceOptions = ["Less than 1 year", "1–2 years", "3–5 years", "6–10 years", "10+ years"];
 
+  // Sync state when user uses browser back/forward
+  useEffect(() => {
+    const handleHashChange = () => {
+      const page = window.location.hash.replace('#', '') || 'home';
+      setCurrentPage(page);
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // Update document title and all meta tags on every page change
+  useEffect(() => {
+    const seo = PAGE_SEO[currentPage] || PAGE_SEO.home;
+    document.title = seo.title;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', seo.description);
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', seo.title);
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', seo.description);
+    document.querySelector('meta[property="og:url"]')?.setAttribute('content',
+      `https://www.chinnygloagency.com/${currentPage === 'home' ? '' : '#' + currentPage}`
+    );
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', seo.title);
+    document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', seo.description);
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href',
+      `https://www.chinnygloagency.com/${currentPage === 'home' ? '' : '#' + currentPage}`
+    );
+  }, [currentPage]);
+
+  // Navigate: update URL hash + state (enables browser back/forward)
+  const navigate = (page) => {
+    setCurrentPage(page);
+    window.location.hash = page === 'home' ? '' : page;
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans text-left">
-      <Navbar setCurrentPage={setCurrentPage} />
+      <Navbar setCurrentPage={navigate} />
       <main className="flex-grow">
         {currentPage === 'home' && (
           <>
-            <Hero setCurrentPage={setCurrentPage} />
+            <Hero setCurrentPage={navigate} />
             <About />
-            <Providers setCurrentPage={setCurrentPage} />
-            <CandidatesGrid setCurrentPage={setCurrentPage} />
+            <Providers setCurrentPage={navigate} />
+            <CandidatesGrid setCurrentPage={navigate} />
             <Contact />
           </>
         )}
         {currentPage === 'doctors' && (
-          <ContentPageTemplate title="Doctors Opportunities" image="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800">
+          <ContentPageTemplate title="Doctor Jobs UK – Locum & Permanent Medical Roles" image="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800">
             <h2 className="text-3xl font-bold mb-6 text-gray-900 text-left">Advancing Your Medical Career</h2>
-            <p className="text-gray-600 mb-6 text-left">At Chinnyglo Agency, we work tirelessly to match your skills with the right opportunities.</p>
+            <p className="text-gray-600 mb-6 text-left">At Chinnyglo Agency, we work tirelessly to match your skills with the right opportunities across the NHS and private sector.</p>
             <ul className="space-y-3 font-medium text-left">
-              {["Excellent Pay Rates", "Flexible Hours", "Personal Consultant"].map(t => (
+              {["Excellent Pay Rates", "Flexible Locum & Permanent Hours", "Dedicated Personal Consultant", "Fast NHS Compliance Checks"].map(t => (
                 <li key={t} className="flex items-center space-x-3 text-left"><CheckCircle2 className="text-green-500" size={20} /><span>{t}</span></li>
               ))}
             </ul>
           </ContentPageTemplate>
         )}
         {currentPage === 'nurses' && (
-          <ContentPageTemplate title="Nursing & HCA Roles" image="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&q=80&w=800">
+          <ContentPageTemplate title="Nursing & HCA Jobs UK – RGN, RMN & Midwife Roles" image="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&q=80&w=800">
             <h2 className="text-3xl font-bold mb-6 text-gray-900 text-left">Global Nursing Recruitment</h2>
-            <p className="text-gray-600 mb-6 text-left">Over a decade of experience placing competent nurses in the UK. We help with visa applications.</p>
-            <button onClick={() => { setCurrentPage('nurse-reg'); window.scrollTo(0,0); }} className="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700">Register Now</button>
+            <p className="text-gray-600 mb-6 text-left">Over a decade of experience placing competent nurses and HCAs across UK NHS hospitals, nursing homes and care homes. We assist with visa applications and NMC compliance.</p>
+            <button onClick={() => navigate('nurse-reg')} className="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700">Register Now</button>
           </ContentPageTemplate>
         )}
         {currentPage === 'care-support' && (
-          <ContentPageTemplate title="Care & Support Workers" image="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80&w=800">
+          <ContentPageTemplate title="Care Worker & Support Worker Jobs UK" image="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80&w=800">
             <h2 className="text-3xl font-bold mb-6 text-gray-900 text-left">Deliver Outstanding Care</h2>
-            <p className="text-gray-600 mb-6 text-left text-gray-900">Deliver care services to vulnerable people. We offer good hourly pay shifts with excellent rates.</p>
-            <button onClick={() => { setCurrentPage('hca-reg'); window.scrollTo(0,0); }} className="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700 transition-colors">Register Now</button>
+            <p className="text-gray-600 mb-6 text-left">Deliver care services to vulnerable and elderly people across the UK. We offer competitive hourly pay, flexible shift patterns and ongoing support.</p>
+            <button onClick={() => navigate('hca-reg')} className="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700 transition-colors">Register Now</button>
           </ContentPageTemplate>
         )}
         {currentPage === 'doctor-reg' && <RegistrationForm type="Doctor" grades={["Associate Specialist", "Consultant", "SHO", "Specialist Registrar", "Foundation Year"]} statusLabel="GMC Status" statusOptions={["Full Registration", "Provisional", "None"]} availabilityOptions={availabilityOptions} rightToWorkOptions={rightToWorkOptions} experienceOptions={experienceOptions} />}
         {currentPage === 'nurse-reg' && <RegistrationForm type="Nurse" grades={["RGN", "RMN", "RNLD", "Midwife"]} statusLabel="NMC Status" statusOptions={["Registered (Active Pin)", "Pending"]} availabilityOptions={availabilityOptions} rightToWorkOptions={rightToWorkOptions} experienceOptions={experienceOptions} />}
         {currentPage === 'hca-reg' && <RegistrationForm type="Healthcare Assistant" grades={["HCA 1", "HCA 2"]} statusLabel="Right to Work" statusOptions={rightToWorkOptions} availabilityOptions={availabilityOptions} rightToWorkOptions={rightToWorkOptions} experienceOptions={experienceOptions} />}
-        {currentPage === 'nhs-hospital' && <ProviderPage title="NHS Hospitals" icon={Building2} desc="Maintaining high standards across UK NHS Trusts." setCurrentPage={setCurrentPage} />}
-        {currentPage === 'private-hospitals' && <ProviderPage title="Private Hospitals" icon={Building} desc="Elite staff for private healthcare excellence." setCurrentPage={setCurrentPage} />}
-        {currentPage === 'nursing-homes' && <ProviderPage title="Nursing Homes" icon={Users} desc="Staffing for residential nursing environments." setCurrentPage={setCurrentPage} />}
-        {currentPage === 'care-homes' && <ProviderPage title="Care Homes" icon={Home} desc="Support for residential care communities." setCurrentPage={setCurrentPage} />}
+        {currentPage === 'nhs-hospital' && <ProviderPage title="NHS Hospital Staffing UK" icon={Building2} desc="Reliable, compliant short-notice staffing for NHS Trusts across the United Kingdom." setCurrentPage={navigate} />}
+        {currentPage === 'private-hospitals' && <ProviderPage title="Private Hospital Staffing UK" icon={Building} desc="Top-tier Doctors, Nurses and HCAs for private healthcare facilities across the UK." setCurrentPage={navigate} />}
+        {currentPage === 'nursing-homes' && <ProviderPage title="Nursing Home Staffing UK" icon={Users} desc="Qualified nurses and care workers for residential and nursing home environments." setCurrentPage={navigate} />}
+        {currentPage === 'care-homes' && <ProviderPage title="Care Home Staffing UK" icon={Home} desc="Compassionate, compliant support workers for care home communities across the UK." setCurrentPage={navigate} />}
       </main>
       <footer className="bg-gray-900 text-gray-400 py-12 px-6 border-t border-gray-800 text-left">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-12 items-start text-left text-gray-400">
           <div className="text-left">
-            <img src={logo} alt="Logo" className="h-12 w-auto mb-6" />
+            <img src={logo} alt="Chinnyglo Agency – UK Healthcare Staffing" className="h-12 w-auto mb-6" />
             <p className="max-w-sm text-left">Highly compliant medical staffing agency serving the UK for over a decade.</p>
           </div>
           <div className="flex space-x-12 text-left">
             <div className="text-left">
               <h6 className="text-white font-bold mb-4 text-left">Quick Links</h6>
               <ul className="space-y-2 text-left">
-                <li><button onClick={() => { setCurrentPage('home'); window.scrollTo(0,0); }} className="hover:text-white transition-colors">Home</button></li>
-                <li><button onClick={() => { setCurrentPage('doctors'); window.scrollTo(0,0); }} className="hover:text-white transition-colors">Doctors</button></li>
-                <li><button onClick={() => { setCurrentPage('nurses'); window.scrollTo(0,0); }} className="hover:text-white transition-colors">Nurses / HCA</button></li>
+                <li><button onClick={() => navigate('home')} className="hover:text-white transition-colors">Home</button></li>
+                <li><button onClick={() => navigate('doctors')} className="hover:text-white transition-colors">Doctors</button></li>
+                <li><button onClick={() => navigate('nurses')} className="hover:text-white transition-colors">Nurses / HCA</button></li>
+                <li><button onClick={() => navigate('care-support')} className="hover:text-white transition-colors">Care Workers</button></li>
               </ul>
             </div>
           </div>
