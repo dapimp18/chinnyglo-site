@@ -659,7 +659,7 @@ export default function App() {
           <div className="text-left text-gray-400">
             <h6 className="text-white font-bold mb-4 text-left">Policies</h6>
             <ul className="space-y-2 text-left text-gray-400">
-              <li><a href="https://drive.google.com/file/d/1R4cs4kDkvapLofdjDwz9OOoDYglrXMi8/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Data Protection</a></li>
+              <li><a href="/privacy.html" className="hover:text-white transition-colors">Data Protection & Privacy</a></li>
               <li><a href="https://drive.google.com/file/d/1Wf0vZypbuvtsQS9vcrvJRFkxrMjH0toV/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Carbon Reduction / CRP</a></li>
             </ul>
           </div>

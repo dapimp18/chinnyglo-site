@@ -1,78 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Homepage -->
+  <!-- Homepage — main entry point for the SPA -->
   <url>
     <loc>https://www.chinnygloagency.com/</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Candidate Pages -->
+  <!-- Privacy & Data Protection -->
   <url>
-    <loc>https://www.chinnygloagency.com/#doctors</loc>
-    <lastmod>2026-04-02</lastmod>
+    <loc>https://www.chinnygloagency.com/privacy.html</loc>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.chinnygloagency.com/#nurses</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.chinnygloagency.com/#care-support</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>
 
-  <!-- Healthcare Provider Pages -->
-  <url>
-    <loc>https://www.chinnygloagency.com/#nhs-hospital</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.chinnygloagency.com/#private-hospitals</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.chinnygloagency.com/#nursing-homes</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.chinnygloagency.com/#care-homes</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Registration Pages -->
-  <url>
-    <loc>https://www.chinnygloagency.com/#doctor-reg</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.chinnygloagency.com/#nurse-reg</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.chinnygloagency.com/#hca-reg</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <!-- 
+    NOTE: This is a Single Page Application (React/Vite) using hash-based 
+    routing (#doctors, #nurses, etc.). Google ignores URL fragments, so 
+    only the homepage is indexed. To get individual pages indexed, consider:
+    1. Switching to history-mode routing (React Router with BrowserRouter)
+    2. Using a prerendering service (prerender.io, Netlify prerendering)
+    3. Server-side rendering (Next.js, Remix) 
+  -->
 
 </urlset>
